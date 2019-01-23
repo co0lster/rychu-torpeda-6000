@@ -1,0 +1,91 @@
+<head>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+
+    <style>
+
+body{
+    background: url('assets/morda.jpg') repeat;
+     background-size:25%;
+}
+
+        .center {
+      
+
+    color: rgb(63, 63, 63);
+}
+
+
+.wrap{
+    display: block;
+   margin-left: auto;
+   margin-right: auto;
+
+   width: 40%;
+    background-color:white;
+    padding: 50px;
+    text-align: center;
+
+}
+
+*{
+ font-family: Arial, Helvetica, sans-serif
+}
+
+.morda {
+    max-width: 100%;
+    height: auto;
+    clear: both;
+
+}
+
+
+
+    </style>
+
+
+</head>
+
+
+
+
+<div class="center">
+    <!-- <img src="assets/morda.jpg" class="morda"/> -->
+    <div class="wrap">
+        <h1>Czy Ryszard Wygrywa?</h1>
+
+        <h2 id="win" >{{.IsWinning}}</h2>
+        
+        <h3>{{.Advantage}}</h3>
+        <h3>Głosy: {{.Votes}}</h3>
+
+        <div class="vote-box-inside vote-yes">
+                <p class="vote-info">
+                  <span>Żeby zagłosować, wyślij SMS</span>
+                  <b>UKD.234</b>
+                  <span>na numer</span>
+                  <b>72355</b>
+                </p>
+              </div>
+            </div>
+</div>
+
+
+<script>$(document).ready(function() {
+
+function f_color(){
+    
+        if (document.getElementById('win').textContent == 'TAK') {
+        document.getElementById('win').style.color = "green";
+        }
+        else {
+        document.getElementById('win').style.color="red";
+
+        }
+        };
+        f_color();
+
+
+} );</script> 
