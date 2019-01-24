@@ -97,16 +97,24 @@ func newsAggHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	 addr, err := determineListenAddress()
+	  if err != nil {
+	    log.Fatal(err)
+	  }
+
 	http.HandleFunc("/", newsAggHandler)
-	http.ListenAndServe(GetPort(), nil)
+	log.Printf("Listening on %s...\n", addr)
+	  if err := http.ListenAndServe(addr, nil); err != nil {
+    	panic(err)
+  }
 }
 
-func GetPort() string {
-	var port = os.Getenv("PORT")
-	// Set a default port if there is nothing in the environment
-	if port == "" {
-		port = "4747"
-		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
-	}
-	return ":" + port
+func determineListenAddress() (string, error) {
+  port := os.Getenv("PORT")
+  if port == "" {
+    return "", fmt.Errorf("$PORT not set")
+  }
+  return ":" + port, nil
 }
+
