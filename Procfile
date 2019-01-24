@@ -1,1 +1,1 @@
-web: rysz
+web: rychu-torpeda-6000
