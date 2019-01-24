@@ -1,1 +1,1 @@
-web: rychu-torpeda-6000
+web: rychu-torpeda-6000 -port=$PORT
